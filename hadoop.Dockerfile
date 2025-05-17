@@ -18,7 +18,8 @@ RUN service ssh start
 #RUN mv hadoop-3.3.4 /usr/local/hadoop
 
 # Copy Hadoop tarball
-COPY downloads/hadoop-3.4.0.tar.gz /tmp/hadoop-3.4.0.tar.gz
+# COPY downloads/hadoop-3.4.0.tar.gz /tmp/hadoop-3.4.0.tar.gz
+wget -O /tmp/hadoop-3.4.0.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz
 RUN mkdir -p /home/hadoop
 RUN tar -xf /tmp/hadoop-3.4.0.tar.gz -C /home/hadoop --strip-components=1
 RUN rm /tmp/hadoop-3.4.0.tar.gz
