@@ -16,13 +16,15 @@ RUN apt-get update && apt-get install -y \
 #RUN mv apache-hive-3.1.3 /usr/local/hive
 
 # Copy Hadoop and Hive tarballs
-COPY downloads/hadoop-3.4.0.tar.gz /tmp/hadoop-3.4.0.tar.gz
+# COPY downloads/hadoop-3.4.0.tar.gz /tmp/hadoop-3.4.0.tar.gz
+RUN wget -O /tmp/hadoop-3.4.0.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.4.0/hadoop-3.4.0.tar.gz
 RUN mkdir -p /home/hadoop
 RUN tar -xf /tmp/hadoop-3.4.0.tar.gz -C /home/hadoop --strip-components=1
 RUN rm /tmp/hadoop-3.4.0.tar.gz
 
 
-COPY downloads/apache-hive-4.0.0-bin.tar.gz /tmp/apache-hive-4.0.0-bin.tar.gz
+# COPY downloads/apache-hive-4.0.0-bin.tar.gz /tmp/apache-hive-4.0.0-bin.tar.gz
+RUN wget -O /tmp/apache-hive-4.0.0-bin.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-4.0.0/hadoop-4.0.0.tar.gz
 RUN mkdir -p /home/hive
 RUN tar -xf /tmp/apache-hive-4.0.0-bin.tar.gz -C /home/hive/ --strip-components=1
 RUN rm /tmp/apache-hive-4.0.0-bin.tar.gz
